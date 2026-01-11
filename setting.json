@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "openapi_tester_auth": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--add-host=host.docker.internal:host-gateway",
+        "-e",
+        "OPENAPI_URL",
+        "-e",
+        "BASE_URL",
+        "-e",
+        "AUTH_TOKEN",
+        "openapi-tester-mcp:latest"
+      ],
+      "env": {
+        "OPENAPI_URL": "http://host.docker.internal:8080/v3/api-docs",
+        "BASE_URL": "http://host.docker.internal:8080",
+        "AUTH_TOKEN": ""
+      },
+      "timeout": 600000,
+      "trust": false
+    }
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  }
+}
